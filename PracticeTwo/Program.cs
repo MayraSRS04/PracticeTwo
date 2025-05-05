@@ -1,5 +1,6 @@
 using Serilog;
 using Domain.Manager;
+using Services.External_Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,9 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Host.UseSerilog();
+
+builder.Services.AddTransient<GiftStoreServices>();
+builder.Services.AddTransient<IGiftManager, GiftManager>();
 
 builder.Services.AddSingleton<IPatientManager>(sp =>
     new PatientManager(builder.Configuration["Data:PatientsFile"]));

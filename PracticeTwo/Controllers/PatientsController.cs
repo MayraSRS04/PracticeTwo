@@ -13,12 +13,14 @@ namespace PracticeTwo.Controllers
     public class PatientsController : ControllerBase
     {
         private readonly IPatientManager _manager;
+        private readonly IGiftManager _giftManager;
         private readonly Serilog.ILogger _logger;
         private readonly HttpClient _http;
 
-        public PatientsController(IPatientManager manager)
+        public PatientsController(IPatientManager manager, IGiftManager gift)
         {
             _manager = manager;
+            _giftManager = gift;
             _logger = Log.ForContext<PatientsController>();
             _http = new HttpClient();
         }
@@ -90,22 +92,14 @@ namespace PracticeTwo.Controllers
         [HttpGet("{ci}/gift")]
         public async Task<IActionResult> GetGift(string ci)
         {
-            _logger.Information("Fetching gift for patient {CI}", ci);
             if (_manager.GetByCi(ci) == null)
                 return NotFound("Patient not found");
 
-            try
-            {
-                var resp = await _http.GetAsync("https://api.restful-api.dev/objects");
-                resp.EnsureSuccessStatusCode();
-                var json = await resp.Content.ReadAsStringAsync();
-                return Ok(json);
-            }
-            catch (HttpRequestException ex)
-            {
-                _logger.Error(ex, "Error fetching gift for {CI}", ci);
-                return StatusCode(500, "Failed to retrieve gift");
-            }
+            var gift = await _giftManager.GetRandomGiftAsync(ci);
+            if (gift == null)
+                return StatusCode(502, "No gift available");
+
+            return Ok(gift);
         }
     }
 }

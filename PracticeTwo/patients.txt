@@ -1,1 +1,2 @@
 mauricio,terceros,123,A+
+mauri,terceros,12,AB-

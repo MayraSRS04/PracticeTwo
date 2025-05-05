@@ -6,17 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Services.External_Services;
 using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace Domain.Manager
 {
-    internal class GiftManager
+    public class GiftManager : IGiftManager
     {
         private readonly GiftStoreServices _externalService;
         private readonly ILogger<GiftManager> _logger;
         private static readonly Random _rnd = new();
 
         public GiftManager(
-            ElectronicStoreService externalService,
+            GiftStoreServices externalService,
             ILogger<GiftManager> logger)
         {
             _externalService = externalService;
@@ -25,12 +26,13 @@ namespace Domain.Manager
 
         public async Task<GiftDto?> GetRandomGiftAsync(string ci)
         {
-            _logger.LogInformation("Obteniendo lista de regalos para CI={CI}", ci);
+            _logger.LogInformation("Obteniendo gift para CI={CI}", ci);
 
-            List<Electronic> items;
+            List<GiftDto> gifts;
             try
             {
-                items = await _externalService.GetAllElectronicItems();
+                // GiftStoreServices ya devuelve List<GiftDto>
+                gifts = await _externalService.GetAllGiftsItems();
             }
             catch (Exception ex)
             {
@@ -38,27 +40,16 @@ namespace Domain.Manager
                 return null;
             }
 
-            if (items == null || !items.Any())
+            if (gifts == null || !gifts.Any())
             {
                 _logger.LogWarning("La API devolvió 0 regalos");
                 return null;
             }
 
-            // Selecciona uno al azar
-            var picked = items[_rnd.Next(items.Count)];
+            var picked = gifts[_rnd.Next(gifts.Count)];
             _logger.LogInformation("Regalo seleccionado ID={Id}, Name={Name}", picked.Id, picked.Name);
+            return picked;
 
-            // Mapea a tu DTO
-            return new GiftDto
-            {
-                Id = picked.Id,
-                Name = picked.Name,
-                Data = new GiftDataDto
-                {
-                    Color = picked.Data?.Color,
-                    Capacity = picked.Data?.Capacity
-                }
-            };
         }
     }
 }
