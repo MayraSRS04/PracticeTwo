@@ -1,3 +1,4 @@
 mauricio,terceros,123,A+
 mauri,terceros,12,AB-
 mayra,rosas,1,A-
+Suzeth,Rosas,34,B+
