@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PracticeTwo.Controllers
 {
     [ApiController]
-    [Route("api/patients")]
+    [Route("api-patients")]
     public class PatientsController : ControllerBase
     {
         private readonly IPatientManager _manager;
@@ -25,7 +25,6 @@ namespace PracticeTwo.Controllers
             _http = new HttpClient();
         }
 
-        // CREATE
         [HttpPost]
         public IActionResult Create([FromBody] PatientDto dto)
         {
@@ -40,7 +39,6 @@ namespace PracticeTwo.Controllers
             return CreatedAtAction(nameof(GetByCi), new { ci = p.CI }, p);
         }
 
-        // READ ALL
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -48,7 +46,6 @@ namespace PracticeTwo.Controllers
             return Ok(_manager.GetAll());
         }
 
-        // READ ONE
         [HttpGet("{ci}")]
         public IActionResult GetByCi(string ci)
         {
@@ -62,7 +59,6 @@ namespace PracticeTwo.Controllers
             return Ok(p);
         }
 
-        // UPDATE
         [HttpPut("{ci}")]
         public IActionResult Update(string ci, [FromBody] PatientUpdateDto dto)
         {
@@ -75,7 +71,6 @@ namespace PracticeTwo.Controllers
             return NoContent();
         }
 
-        // DELETE
         [HttpDelete("{ci}")]
         public IActionResult Delete(string ci)
         {
@@ -88,7 +83,6 @@ namespace PracticeTwo.Controllers
             return NoContent();
         }
 
-        // GIFT ENDPOINT
         [HttpGet("{ci}/gift")]
         public async Task<IActionResult> GetGift(string ci)
         {

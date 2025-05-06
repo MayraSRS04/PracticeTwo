@@ -40,7 +40,6 @@ namespace Domain.Manager
 
         public void Create(Patient patient)
         {
-            // Asignación aleatoria de grupo sangue
             var rnd = new Random();
             patient.BloodGroup = _bloodGroups[rnd.Next(_bloodGroups.Length)];
 
