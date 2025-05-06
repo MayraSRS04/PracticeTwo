@@ -1,0 +1,40 @@
+2025-05-05 21:23:53.818 -04:00 [INF] Now listening on: http://localhost:5019
+2025-05-05 21:23:53.881 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-05 21:23:53.885 -04:00 [INF] Hosting environment: Development
+2025-05-05 21:23:53.887 -04:00 [INF] Content root path: D:\Users\MAYRA\OneDrive\Documentos\ing de sistemas UPB\Certificacion1\PracticeTwo\PracticeTwo
+2025-05-05 21:23:54.747 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/index.html - -
+2025-05-05 21:23:55.375 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/index.html - - - 200 - text/html;charset=utf-8 643.6596ms
+2025-05-05 21:23:55.399 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - -
+2025-05-05 21:23:55.419 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 20.0801ms
+2025-05-05 21:23:55.484 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_vs/browserLink - -
+2025-05-05 21:23:55.565 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 80.0463ms
+2025-05-05 21:23:56.916 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - -
+2025-05-05 21:23:57.071 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 155.3672ms
+2025-05-05 21:25:39.277 -04:00 [INF] Now listening on: http://localhost:5019
+2025-05-05 21:25:39.402 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-05 21:25:39.406 -04:00 [INF] Hosting environment: Development
+2025-05-05 21:25:39.409 -04:00 [INF] Content root path: D:\Users\MAYRA\OneDrive\Documentos\ing de sistemas UPB\Certificacion1\PracticeTwo\PracticeTwo
+2025-05-05 21:25:40.150 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/index.html - -
+2025-05-05 21:25:40.581 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/index.html - - - 200 - text/html;charset=utf-8 438.3153ms
+2025-05-05 21:25:40.615 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - -
+2025-05-05 21:25:40.623 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 8.5925ms
+2025-05-05 21:25:40.672 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/_vs/browserLink - -
+2025-05-05 21:25:40.690 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.4343ms
+2025-05-05 21:25:42.165 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - -
+2025-05-05 21:25:42.278 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 113.2093ms
+2025-05-05 21:26:11.433 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5019/api-patients application/json 57
+2025-05-05 21:26:11.442 -04:00 [INF] Executing endpoint 'PracticeTwo.Controllers.PatientsController.Create (PracticeTwo)'
+2025-05-05 21:26:11.482 -04:00 [INF] Route matched with {action = "Create", controller = "Patients"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(PracticeTwo.Dtos.PatientDto) on controller PracticeTwo.Controllers.PatientsController (PracticeTwo).
+2025-05-05 21:26:11.547 -04:00 [INF] Creating patient 1
+2025-05-05 21:26:11.565 -04:00 [INF] Executing CreatedAtActionResult, writing value of type 'Domain.Models.Patient'.
+2025-05-05 21:26:11.604 -04:00 [INF] Executed action PracticeTwo.Controllers.PatientsController.Create (PracticeTwo) in 114.6207ms
+2025-05-05 21:26:11.609 -04:00 [INF] Executed endpoint 'PracticeTwo.Controllers.PatientsController.Create (PracticeTwo)'
+2025-05-05 21:26:11.610 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5019/api-patients application/json 57 - 201 - application/json;+charset=utf-8 177.1128ms
+2025-05-05 21:26:20.974 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5019/api-patients - -
+2025-05-05 21:26:20.976 -04:00 [INF] Executing endpoint 'PracticeTwo.Controllers.PatientsController.GetAll (PracticeTwo)'
+2025-05-05 21:26:20.980 -04:00 [INF] Route matched with {action = "GetAll", controller = "Patients"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAll() on controller PracticeTwo.Controllers.PatientsController (PracticeTwo).
+2025-05-05 21:26:20.983 -04:00 [INF] Getting all patients
+2025-05-05 21:26:20.985 -04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Domain.Models.Patient, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-05 21:26:20.990 -04:00 [INF] Executed action PracticeTwo.Controllers.PatientsController.GetAll (PracticeTwo) in 7.6487ms
+2025-05-05 21:26:20.992 -04:00 [INF] Executed endpoint 'PracticeTwo.Controllers.PatientsController.GetAll (PracticeTwo)'
+2025-05-05 21:26:20.993 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5019/api-patients - - - 200 - application/json;+charset=utf-8 18.7219ms

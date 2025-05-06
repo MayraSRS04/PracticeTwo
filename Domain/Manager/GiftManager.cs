@@ -31,7 +31,6 @@ namespace Domain.Manager
             List<GiftDto> gifts;
             try
             {
-                // GiftStoreServices ya devuelve List<GiftDto>
                 gifts = await _externalService.GetAllGiftsItems();
             }
             catch (Exception ex)
